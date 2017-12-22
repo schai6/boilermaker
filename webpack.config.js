@@ -5,6 +5,9 @@ module.exports = {
     filename: './public/bundle.js' // assumes your bundle.js will also be in the root of your project folder
   },
   devtool: 'source-map',
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   module: {
     rules: [
       {
@@ -14,6 +17,13 @@ module.exports = {
         options: {
           presets: ['react', 'env'] // if you aren't using 'babel-preset-env', then omit the 'env'
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ]
       }
     ]
   }
