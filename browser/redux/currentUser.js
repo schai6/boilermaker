@@ -31,18 +31,13 @@ export const fetchCurrentUser = () => dispatch => {
 
 export const signup = (user) => dispatch => {
   axios.post('/api/auth/signup', user)
-    .then(user => {
-      dispatch(setCurrentUser(user.data));
-    })
+    .then(user => dispatch(setCurrentUser(user.data)))
     .catch(err => console.error(`Logging in: ${user.email} unsuccessful`, err));
-
 }
 
 export const login = (user) => dispatch => {
   axios.post('/api/auth/login', user)
-    .then(user => {
-      dispatch(setCurrentUser(user.data));
-    })
+    .then(user => dispatch(setCurrentUser(user.data)))
     .catch(err => console.error(`Logging in: ${user.email} unsuccessful`, err));
 };
 

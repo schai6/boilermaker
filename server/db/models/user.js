@@ -38,12 +38,13 @@ function setSaltAndPassword(user) {
   // we need to salt and hash again when the user enters their password for the first time
   // and do it again whenever they change it
   if (user.changed('password')) {
-    return new Promise ((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       bcrypt.hash(user.password, 8, function (err, hash) {
         if (err) return reject(err);
         user.password = hash;
         return resolve(user);
       });
+      return null;
     });
   }
 }

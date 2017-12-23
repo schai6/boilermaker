@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV === 'development') {
+  require('./localSecrets'); // this will mutate the process.env object with your secrets.
+}
 const app = require('./server');
 const {
   db

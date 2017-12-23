@@ -23,7 +23,6 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  console.log(',awereawr', req.body);
   User.create(req.body)
     .then(user => res.status(201).json(user))
     .catch(next);
